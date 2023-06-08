@@ -14,14 +14,7 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public User saveUser(User user) {
-		return userRepository.save(user);	 
-	}
-	
-	public List <User> saveUsers(List<User> users) {
-		return userRepository.saveAll(users);
-	}
-	
+	public User saveUser(User user) {return userRepository.save(user);}
 	public List<User> getUsers(){
 		return userRepository.findAll();
 	}
@@ -37,11 +30,20 @@ public class UserService {
 		userRepository.delete(Objects.requireNonNull(userRepository.findById(id).orElse(null)));
 
 	}
+	public List<User> getUsersByFirstNamePrefix(String prefix) {
+		return userRepository.findByFirstNameStartingWith(prefix);
+	}
+	public List<User> getUsersByLastNamePrefix(String prefix) {
+		return userRepository.findByLastNameStartingWith(prefix);
+	}
+	public List<User> getUsersByPhoneNumberPrefix(String prefix) {
+		return userRepository.findByPhoneNumberStartingWith(prefix);
+	}
 
 	public User softDeleteUser(Integer id) {
 		User user = userRepository.findById(id).orElse(null);
 		assert user != null;
-		user.setS_delete("true");
+		user.setSoftDelete("true");
 		return user;
 	}
 

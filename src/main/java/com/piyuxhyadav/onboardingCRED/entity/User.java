@@ -14,21 +14,21 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer user_id;
-	private String f_name;
-	private String l_name;
-	private String p_number;
-	private String s_delete="false";
+	private String firstName;
+	private String lastName;
+	private String phoneNumber;
+	private String softDelete="false";
 
 
 	public User() {
 		
 	}
 	
-	public User(String f_name, String l_name, String p_number) {
+	public User(String firstName, String lastName, String phoneNumber) {
 		super();
-		this.f_name = f_name;
-		this.l_name = l_name;
-		this.p_number = p_number;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phoneNumber = phoneNumber;
 
 	}
 
@@ -39,31 +39,31 @@ public class User {
 		this.user_id = user_id;
 	}
 
-	public String getF_name() {
-		return f_name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setF_name(String f_name) {
-		this.f_name = f_name;
-	}
-
-	public String getL_name() {
-		return l_name;
-	}
-	public void setL_name(String l_name) {
-		this.l_name = l_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getP_number() {
-		return p_number;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setP_number(String p_number) {
-		this.p_number = p_number;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getS_delete() {
-        return s_delete;
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getSoftDelete() {
+        return softDelete;
     }
-	public void setS_delete(String s_delete) {
-        this.s_delete = s_delete;
+	public void setSoftDelete(String softDelete) {
+        this.softDelete = softDelete;
     }
 }
