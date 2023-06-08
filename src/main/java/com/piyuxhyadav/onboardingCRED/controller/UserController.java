@@ -5,14 +5,7 @@ import java.util.List;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.piyuxhyadav.onboardingCRED.entity.User;
 import com.piyuxhyadav.onboardingCRED.service.UserService;
@@ -30,13 +23,24 @@ public class UserController {
 	
 	@GetMapping("/users/{id}")
 	public User getUser(@PathVariable Integer id) {
-		return userService.getUserbyId(id);
+		return userService.getUserById(id);
 	}
 	 
 	@RequestMapping(method=RequestMethod.POST, value ="/users")
 	public User addUser(@RequestBody User user) {
 		return userService.saveUser(user);
 	}
-	
-	
+
+	@PutMapping("/users/{id}/softDelete")
+	public User softDelete(@PathVariable Integer id) {
+		return userService.softDeleteUser(id);
+	}
+	@PutMapping("/users/{id}")
+	public User updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
+	@DeleteMapping("/users/{id}")
+	public void deleteUser(@PathVariable Integer id) {
+        userService.deleteUser(id);
+    }
 }
