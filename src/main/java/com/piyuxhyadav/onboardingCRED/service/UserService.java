@@ -43,7 +43,7 @@ public class UserService {
 	public User softDeleteUser(Integer id) {
 		User user = userRepository.findById(id).orElse(null);
 		assert user != null;
-		user.setSoftDelete("true");
+		user.setSoftDelete(1);
 		return user;
 	}
 

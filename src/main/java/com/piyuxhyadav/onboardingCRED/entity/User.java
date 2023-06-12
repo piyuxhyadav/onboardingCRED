@@ -17,7 +17,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
-	private String softDelete="false";
+	private Integer soft_delete=0;
 
 
 	public User() {
@@ -60,10 +60,10 @@ public class User {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getSoftDelete() {
-        return softDelete;
+	public Integer getSoftDelete() {
+        return soft_delete;
     }
-	public void setSoftDelete(String softDelete) {
-        this.softDelete = softDelete;
+	public void setSoftDelete(Integer softDelete) {
+        this.soft_delete = softDelete;
     }
 }

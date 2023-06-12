@@ -40,7 +40,7 @@ public class UserController {
 		return userService.saveUser(user);
 	}
 
-	@PutMapping("/users/softDelete/{id}")
+	@PutMapping("/users/{id}/softDelete")
 	public User softDelete(@PathVariable Integer id) {
 		return userService.softDeleteUser(id);
 	}
