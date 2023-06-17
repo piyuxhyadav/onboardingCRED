@@ -46,5 +46,11 @@ public class UserService {
 		user.setSoftDelete(1);
 		return user;
 	}
+	public User softUndeleteUser(Integer id) {
+		User user = userRepository.findById(id).orElse(null);
+		assert user != null;
+		user.setSoftDelete(0);
+		return user;
+	}
 
 }
