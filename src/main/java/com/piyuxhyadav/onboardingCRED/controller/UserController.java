@@ -49,7 +49,11 @@ public class UserController {
 	public User updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }
-
+	
+	@PutMapping("/users/{id}/softUndelete")
+	public User updateUser(@RequestBody User user) {
+        return userService.softUndeleteUser(user);
+    }
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(@PathVariable Integer id) {
         userService.deleteUser(id);
